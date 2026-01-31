@@ -11,6 +11,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinksList = document.querySelector('.nav-links');
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinksList.classList.toggle('active');
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                navLinksList.classList.remove('active');
+            }
+        });
+    });
+
     const ctaButtons = document.querySelectorAll('.cta-button');
     ctaButtons.forEach(button => {
         button.addEventListener('mouseenter', function() {
